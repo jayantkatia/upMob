@@ -1,0 +1,6 @@
+# install VS Code extension "REST Client" https://marketplace.visualstudio.com/items?itemName=humao.rest-client
+
+@baseURL= http://40.76.94.137:8082
+
+GET {{baseURL}}/devices
+Accept: application/json
