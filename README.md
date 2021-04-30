@@ -7,7 +7,7 @@
 ![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/jayantkatia/upMob?style=for-the-badge)
 </p>
 
-<p align="center">UpMob uses <a href="https://github.com/jayantkatia/upcoming_mobiles_api">upcoming_mobiles_api</a> to get the mobiles devices information which are yet to come to Indian markets<p>
+<p align="center">UpMob uses <a href="https://github.com/jayantkatia/upMob-api">UpMob API</a> to get the mobiles devices information which are yet to come to Indian markets<p>
 
 
 
@@ -21,7 +21,7 @@
 4. Open the code and start editing.
 
 ## :hammer: Uses UpMob API 
-UpMob depends on [UpMob API v1.x](https://github.com/jayantkatia/upcoming_mobiles_api/releases)
+UpMob depends on [UpMob API v1.x](https://github.com/jayantkatia/upMob-api/releases)
 
 ## :pencil2: TODO 
 - [ ] Bookmark devices
