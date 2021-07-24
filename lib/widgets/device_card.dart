@@ -16,12 +16,11 @@ class DeviceCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final providerValue = Provider.of<DeviceProvider>(context);
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
       child: InkWell(
         onTap: () => Navigator.of(context).push(MaterialPageRoute(
-          builder: (context) => ChangeNotifierProvider.value(value: providerValue, builder: (context, child) => DetailsPage(device: device)),
+          builder: (context) => DetailsPage(device: device)
         )),
         child: Card(
           color: Colors.white,
