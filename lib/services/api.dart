@@ -1,5 +1,4 @@
 class API {
-  static String host = "40.76.94.137";
-  Uri getDevicesURI() =>
-      Uri(scheme: 'http', host: host, port: 8082, path: '/devices');
+  static String host = "upmob.eastus.cloudapp.azure.com";
+  Uri getDevicesURI() => Uri(scheme: 'http', host: host, port: 8081, path: '/devices/top100');
 }

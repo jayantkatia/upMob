@@ -21,7 +21,9 @@ void main() {
           '"img_url": "https://picsum.photos/100",'
           '"source_url": "https://picsum.photos",'
           '"price": 9999,'
-          '"spec_score": 89'
+          '"spec_score": 89,'
+          '"last_updated": "09-072021",'
+          '"scrape_timestamp":"20391239"'
           '}]',
           200));
 
