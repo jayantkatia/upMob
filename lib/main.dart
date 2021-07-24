@@ -33,17 +33,20 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Upcoming Mobiles',
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
+    return ChangeNotifierProvider<DeviceProvider>(
+      create: (context) => DeviceProvider(devices: devices),
+      child:MaterialApp(
+        title: 'Upcoming Mobiles',
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData(
           primaryColor: Colors.white,
           accentColor: Colors.orangeAccent,
           scaffoldBackgroundColor: Colors.grey[100],
           brightness: Brightness.light,
           fontFamily: 'GoogleSans',
           textTheme: TextTheme().copyWith(headline6: TextTheme().headline6?.copyWith(fontSize: 18))),
-      home: ChangeNotifierProvider<DeviceProvider>(create: (context) => DeviceProvider(devices: devices), child: MyHomePage()),
+        home:  MyHomePage()
+      ),
     );
   }
 }

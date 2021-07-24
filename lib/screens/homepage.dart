@@ -17,7 +17,6 @@ class _MyHomePageState extends State<MyHomePage> {
   final APIService apiService = APIService.init();
   @override
   Widget build(BuildContext context) {
-    final providerValue = Provider.of<DeviceProvider>(context);
     return Scaffold(
         appBar: AppBar(
           centerTitle: true,
@@ -28,7 +27,7 @@ class _MyHomePageState extends State<MyHomePage> {
           actions: [
             IconButton(
               onPressed: () => Navigator.of(context).push(MaterialPageRoute(
-                builder: (context) => ChangeNotifierProvider.value(value: providerValue, builder: (context, child) => BookmarksPage()),
+                builder: (context) =>  BookmarksPage()
               )),
               icon: Icon(Icons.bookmarks_rounded),
             ),
