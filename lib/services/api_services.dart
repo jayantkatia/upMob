@@ -16,7 +16,8 @@ class APIService {
       throw Exception('No Data Found');
     } else if (response.statusCode == 200) {
       List? devices = json.decode(response.body);
-      if (devices != null && devices.length != 0) return devices.map((device) => Device.fromJson(device)).toList();
+      if (devices != null && devices.length != 0)
+        return devices.map((device) => Device.fromJson(device)).toList();
       throw Exception('No devices retrieved from json');
     }
 
