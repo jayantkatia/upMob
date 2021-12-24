@@ -3,13 +3,17 @@ import 'package:flutter/services.dart';
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:provider/provider.dart';
-import 'package:upcoming_mobiles_frontend/model/device.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
+import 'package:upcoming_mobiles_frontend/model/device.dart';
 import 'package:upcoming_mobiles_frontend/screens/homepage.dart';
 import 'package:upcoming_mobiles_frontend/services/sqlite_database_operations.dart';
 import 'package:upcoming_mobiles_frontend/widgets/inherited_database.dart';
 
 void main() async {
+  // Load ebvironment variables
+  await dotenv.load(fileName: '.env');
+
   WidgetsFlutterBinding.ensureInitialized();
   final Database database = await openDatabase(
     join(await getDatabasesPath(), 'UpMob_database.db'),
@@ -35,17 +39,20 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return ChangeNotifierProvider<DeviceProvider>(
       create: (context) => DeviceProvider(devices: devices),
-      child:MaterialApp(
+      child: MaterialApp(
         title: 'Upcoming Mobiles',
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
-          primaryColor: Colors.white,
-          accentColor: Colors.orangeAccent,
-          scaffoldBackgroundColor: Colors.grey[100],
-          brightness: Brightness.light,
-          fontFamily: 'GoogleSans',
-          textTheme: TextTheme().copyWith(headline6: TextTheme().headline6?.copyWith(fontSize: 18))),
-        home:  MyHomePage()
+            appBarTheme: AppBarTheme(
+              backgroundColor: Colors.white,
+              foregroundColor: Colors.black,
+            ),
+            scaffoldBackgroundColor: Colors.grey[100],
+            brightness: Brightness.light,
+            fontFamily: 'GoogleSans',
+            textTheme: TextTheme().copyWith(headline6: TextTheme().headline6?.copyWith(fontSize: 18)),
+            colorScheme: ColorScheme.fromSwatch().copyWith(secondary: Colors.orangeAccent)),
+        home: MyHomePage(),
       ),
     );
   }

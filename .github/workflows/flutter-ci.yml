@@ -5,6 +5,7 @@ on:
   push:
     branches:
     - main
+  workflow_dispatch:
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -23,18 +24,32 @@ jobs:
 
     - name: 'Getting flutter packages'
       run: flutter pub get
-        
+
+    # Generating mocks
+    - name: 'Generating mocks'
+      run: flutter pub run build_runner build --delete-conflicting-outputs
+
     # Check for any formatting issues in the code. Returns 1 if any changes made.
     # - run: flutter format --set-exit-if-changed .
     
     # Statically analyze the Dart code for any errors.
-    - run: flutter analyze .
+    - name: 'Analyzing code for errors'
+      run: flutter analyze .
 
     - name: 'Running tests'
       run: flutter test
+      env:
+        HOST: ${{ secrets.HOST }}
+        PORT: ${{ secrets.PORT }}
+        PATH: ${{ secrets.PATH }}
 
     - name: 'Building apk'
       run: flutter build apk
+      env:
+        HOST: ${{ secrets.HOST }}
+        PORT: ${{ secrets.PORT }}
+        PATH: ${{ secrets.PATH }}
+
     
     # Upload generated apk to the artifacts.
     - uses: actions/upload-artifact@v1

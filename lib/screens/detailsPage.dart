@@ -129,15 +129,13 @@ class _DetailsPageState extends State<DetailsPage> {
       devices.removeWhere((device) => device.deviceName == widget.device.deviceName);
       Provider.of<DeviceProvider>(context, listen: false).setDevices(devices);
     } else {
-      insertDevice(widget.device, database).then((value) =>
-      {
-        setState(() {
-          isBookMarked = true;
-        })
-      });
+      insertDevice(widget.device, database).then((value) => {
+            setState(() {
+              isBookMarked = true;
+            })
+          });
       devices.add(widget.device);
-      Provider.of<DeviceProvider>(context, listen: false).setDevices(
-          devices);
+      Provider.of<DeviceProvider>(context, listen: false).setDevices(devices);
     }
   }
 }

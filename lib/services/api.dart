@@ -1,4 +1,6 @@
+import 'package:flutter_dotenv/flutter_dotenv.dart';
+
 class API {
-  static String host = "upmob.eastus.cloudapp.azure.com";
-  Uri getDevicesURI() => Uri(scheme: 'http', host: host, port: 8081, path: '/devices/top100');
+  String? port = dotenv.env['PORT'];
+  Uri getDevicesURI() => Uri(scheme: 'http', host: dotenv.env['HOST'], port: port != null ? int.parse(port!) : null, path: dotenv.env['PATH']);
 }
