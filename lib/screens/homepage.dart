@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import 'package:provider/provider.dart';
-import 'package:upcoming_mobiles_frontend/main.dart';
 import 'package:upcoming_mobiles_frontend/screens/bookmarksPage.dart';
 
 import '../model/device.dart';
@@ -22,13 +20,11 @@ class _MyHomePageState extends State<MyHomePage> {
           centerTitle: true,
           title: Text(
             "Upcoming Mobiles",
-            style: TextStyle(fontWeight: FontWeight.bold),
+            style: TextStyle(fontWeight: FontWeight.bold, color: Colors.black),
           ),
           actions: [
             IconButton(
-              onPressed: () => Navigator.of(context).push(MaterialPageRoute(
-                builder: (context) =>  BookmarksPage()
-              )),
+              onPressed: () => Navigator.of(context).push(MaterialPageRoute(builder: (context) => BookmarksPage())),
               icon: Icon(Icons.bookmarks_rounded),
             ),
           ],
@@ -52,7 +48,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   children: [
                     Icon(
                       Icons.error,
-                      color: Theme.of(context).accentColor,
+                      color: Theme.of(context).colorScheme.secondary,
                       size: 64,
                     ),
                     Text(

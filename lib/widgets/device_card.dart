@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import 'package:upcoming_mobiles_frontend/main.dart';
 import 'package:upcoming_mobiles_frontend/screens/detailsPage.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -19,9 +17,7 @@ class DeviceCard extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
       child: InkWell(
-        onTap: () => Navigator.of(context).push(MaterialPageRoute(
-          builder: (context) => DetailsPage(device: device)
-        )),
+        onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (context) => DetailsPage(device: device))),
         child: Card(
           color: Colors.white,
           shadowColor: Colors.grey[400],

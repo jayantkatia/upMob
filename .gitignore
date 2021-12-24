@@ -1,3 +1,7 @@
+# Environment variables
+*.env
+.vscode/settings.json
+
 # Miscellaneous
 *.class
 *.log
