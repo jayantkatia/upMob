@@ -22,8 +22,8 @@ jobs:
       with:
         channel: 'stable'
 
-    # Make .env file
-    - name: 'Creating a .env file'
+    # Create .env file
+    - name: 'Create .env file'
       run: echo -e 'API_HOST=$API_HOST\nAPI_PORT=$API_PORT\nAPI_PATH=$API_PATH' > .env
       env:
         API_HOST: ${{ secrets.API_HOST }}
@@ -31,26 +31,26 @@ jobs:
         API_PATH: ${{ secrets.API_PATH }}
 
     # Get packages
-    - name: 'Getting flutter packages'
+    - name: 'Get Flutter packages'
       run: flutter pub get
 
     # Check for any formatting issues in the code. Returns 1 if any changes made.
     # - run: flutter format --set-exit-if-changed .
     
     # Statically analyze the Dart code for any errors.
-    # - name: 'Analyzing code for errors'
-    #   run: flutter analyze .
+    - name: 'Analyze code for errors'
+      run: flutter analyze .
 
     # Generate mocks
-    - name: 'Generating mocks'
+    - name: 'Generate mocks'
       run: flutter pub run build_runner build --delete-conflicting-outputs
 
     # Run tests
-    - name: 'Running tests'
+    - name: 'Run tests'
       run: flutter test
 
     # Build apk
-    - name: 'Building apk'
+    - name: 'Build APK'
       run: flutter build apk
     
     # Upload generated apk to the artifacts.
