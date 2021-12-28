@@ -1,4 +1,4 @@
 # install VS Code extension "REST Client" https://marketplace.visualstudio.com/items?itemName=humao.rest-client
 
-GET {{HOST}}:{{PORT}}{{PATH}}
+GET {{API_HOST}}:{{API_PORT}}{{API_PATH}}
 Accept: application/json
