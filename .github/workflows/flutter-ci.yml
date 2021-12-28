@@ -24,11 +24,12 @@ jobs:
 
     # Create .env file
     - name: 'Create .env file'
-      run: echo -e 'API_HOST=$API_HOST\nAPI_PORT=$API_PORT\nAPI_PATH=$API_PATH' > .env
-      env:
-        API_HOST: ${{ secrets.API_HOST }}
-        API_PORT: ${{ secrets.API_PORT }}
-        API_PATH: ${{ secrets.API_PATH }}
+      run: |
+          cat << EOF > .env
+          API_HOST=${{ secrets.API_HOST }}
+          API_PORT=${{ secrets.API_PORT }}
+          API_PATH=${{ secrets.API_PATH }}
+          EOF
 
     # Get packages
     - name: 'Get Flutter packages'
