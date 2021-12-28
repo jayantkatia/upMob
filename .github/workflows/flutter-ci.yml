@@ -30,7 +30,10 @@ jobs:
         API_HOST: ${{ secrets.API_HOST }}
         API_PORT: ${{ secrets.API_PORT }}
         API_PATH: ${{ secrets.API_PATH }}
-
+        
+    - name: 'Print'
+      run: cat .env
+      
     # Get packages
     - name: 'Get Flutter packages'
       run: flutter pub get
@@ -38,24 +41,24 @@ jobs:
     # Check for any formatting issues in the code. Returns 1 if any changes made.
     # - run: flutter format --set-exit-if-changed .
     
-    # Statically analyze the Dart code for any errors.
-    - name: 'Analyze code for errors'
-      run: flutter analyze .
+#     # Statically analyze the Dart code for any errors.
+#     - name: 'Analyze code for errors'
+#       run: flutter analyze .
 
-    # Generate mocks
-    - name: 'Generate mocks'
-      run: flutter pub run build_runner build --delete-conflicting-outputs
+#     # Generate mocks
+#     - name: 'Generate mocks'
+#       run: flutter pub run build_runner build --delete-conflicting-outputs
 
-    # Run tests
-    - name: 'Run tests'
-      run: flutter test
+#     # Run tests
+#     - name: 'Run tests'
+#       run: flutter test
 
-    # Build apk
-    - name: 'Build APK'
-      run: flutter build apk
+#     # Build apk
+#     - name: 'Build APK'
+#       run: flutter build apk
     
-    # Upload generated apk to the artifacts.
-    - uses: actions/upload-artifact@v1
-      with:
-        name: release-apk
-        path: build/app/outputs/apk/release/app-release.apk
+#     # Upload generated apk to the artifacts.
+#     - uses: actions/upload-artifact@v1
+#       with:
+#         name: release-apk
+#         path: build/app/outputs/apk/release/app-release.apk
