@@ -20,7 +20,7 @@ jobs:
     # Settting up flutter environment
     - uses: subosito/flutter-action@v1
       with:
-        flutter-version: '2.0.5'
+        channel: 'stable'
 
     - name: 'Getting flutter packages'
       run: flutter pub get
@@ -33,22 +33,22 @@ jobs:
     # - run: flutter format --set-exit-if-changed .
     
     # Statically analyze the Dart code for any errors.
-    - name: 'Analyzing code for errors'
-      run: flutter analyze .
+    # - name: 'Analyzing code for errors'
+    #   run: flutter analyze .
 
     - name: 'Running tests'
       run: flutter test
       env:
-        HOST: ${{ secrets.HOST }}
-        PORT: ${{ secrets.PORT }}
-        PATH: ${{ secrets.PATH }}
+        API_HOST: ${{ secrets.API_HOST }}
+        API_PORT: ${{ secrets.API_PORT }}
+        API_PATH: ${{ secrets.API_PATH }}
 
     - name: 'Building apk'
       run: flutter build apk
       env:
-        HOST: ${{ secrets.HOST }}
-        PORT: ${{ secrets.PORT }}
-        PATH: ${{ secrets.PATH }}
+        API_HOST: ${{ secrets.API_HOST }}
+        API_PORT: ${{ secrets.API_PORT }}
+        API_PATH: ${{ secrets.API_PATH }}
 
     
     # Upload generated apk to the artifacts.

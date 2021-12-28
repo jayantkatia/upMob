@@ -16,9 +16,9 @@
 2. Navigate into the project directory.
 3. Define the environment variables in ```.env``` file at root of the project.
    ```.env
-    HOST=yourhost.com
-    PORT=8080
-    PATH=/some-path
+    API_HOST=yourhost.com
+    API_PORT=8080
+    API_PATH=/some-path
     ```
 
     You might like [rest-client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client), if you use [VS Code](https://code.visualstudio.com/). This extension  allows you to send HTTP request and view the response in VS Code directly. Rest-client API requests are already defined in the ```api_requests/``` directory. You need to define the environment vairables though. In the ```.vscode/settings.json```,
@@ -26,9 +26,9 @@
     {
         "rest-client.environmentVariables": {
             "$shared": {
-                "HOST": "yourhost.com",
-                "PORT": "8080",
-                "PATH": "/some-path"
+                "API_HOST": "yourhost.com",
+                "API_PORT": "8080",
+                "API_PATH": "/some-path"
             }
         }
     }
